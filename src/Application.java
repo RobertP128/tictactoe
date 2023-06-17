@@ -139,7 +139,9 @@ public class Application {
     }
 
     public void print(int[][] board) {
+        System.out.println("  A B C");
         for (int y = 0; y < board.length; y++) {
+            System.out.print((y+1)+"|");
             for (int x = 0; x < board[y].length; x++) {
                 switch (board[y][x]) {
                     case 0:
@@ -157,6 +159,7 @@ public class Application {
                 System.out.print("|");
             }
             System.out.println();
+            System.out.print(" |");
             for (int x = 0; x < board[y].length; x++) {
                 System.out.print("--");
             }
