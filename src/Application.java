@@ -42,11 +42,11 @@ public class Application {
         for (int[] ints : board) {
             int countX = 0;
             int countO = 0;
-            for (int x = 0; x < ints.length; x++) {
-                if (ints[x] == 1) {
+            for (int anInt : ints) {
+                if (anInt == 1) {
                     countX++;
                 }
-                if (ints[x] == 2) {
+                if (anInt == 2) {
                     countO++;
                 }
             }
@@ -99,8 +99,8 @@ public class Application {
 
         boolean allFull=true;
         for (int[] ints : board) {
-            for (int x = 0; x < ints.length; x++) {
-                if (ints[x] == 0) {
+            for (int anInt : ints) {
+                if (anInt == 0) {
                     allFull = false;
                     break;
                 }
