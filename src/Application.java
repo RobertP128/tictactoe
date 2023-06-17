@@ -14,23 +14,18 @@ public class Application {
         if (pos == null) return false;
         if (pos.length() != 2) return false;
         if (pos.charAt(0) >= 'A' && pos.charAt(0) <= 'C') {
-            if (pos.charAt(1) >= '1' && pos.charAt(1) <= '3') {
-                return true;
-            }
+            return pos.charAt(1) >= '1' && pos.charAt(1) <= '3';
         }
         return false;
     }
 
     public int getX(String pos) {
-        switch (pos.charAt(0)) {
-            case 'A':
-                return 0;
-            case 'B':
-                return 1;
-            case 'C':
-                return 2;
-        }
-        return -1;
+        return switch (pos.charAt(0)) {
+            case 'A' -> 0;
+            case 'B' -> 1;
+            case 'C' -> 2;
+            default -> -1;
+        };
     }
 
     public int getY(String pos) {
@@ -44,30 +39,30 @@ public class Application {
      */
     public int whoWon() {
 
-        for (int y = 0; y < board.length; y++) {
-            int countX=0;
-            int countO=0;
-            for (int x = 0; x < board[y].length; x++) {
-                if (board[y][x]==1){
+        for (int[] ints : board) {
+            int countX = 0;
+            int countO = 0;
+            for (int x = 0; x < ints.length; x++) {
+                if (ints[x] == 1) {
                     countX++;
                 }
-                if (board[y][x]==2){
+                if (ints[x] == 2) {
                     countO++;
                 }
             }
-            if (countX==3) return 1;
-            if (countO==3) return 2;
+            if (countX == 3) return 1;
+            if (countO == 3) return 2;
 
         }
 
         for (int x = 0; x < board[0].length; x++) {
             int countX=0;
             int countO=0;
-            for (int y = 0; y < board.length; y++) {
-                if (board[y][x]==1){
+            for (int[] ints : board) {
+                if (ints[x] == 1) {
                     countX++;
                 }
-                if (board[y][x]==2){
+                if (ints[x] == 2) {
                     countO++;
                 }
             }
@@ -103,10 +98,10 @@ public class Application {
 
 
         boolean allFull=true;
-        for (int y = 0; y < board.length; y++) {
-            for (int x = 0; x < board[y].length; x++) {
-                if (board[y][x]==0){
-                    allFull=false;
+        for (int[] ints : board) {
+            for (int x = 0; x < ints.length; x++) {
+                if (ints[x] == 0) {
+                    allFull = false;
                     break;
                 }
             }
@@ -144,17 +139,10 @@ public class Application {
             System.out.print((y+1)+"|");
             for (int x = 0; x < board[y].length; x++) {
                 switch (board[y][x]) {
-                    case 0:
-                        System.out.print(" ");
-                        break;
-                    case 1:
-                        System.out.print("X");
-                        break;
-                    case 2:
-                        System.out.print("O");
-                        break;
-                    default:
-                        System.out.print("?");
+                    case 0 -> System.out.print(" ");
+                    case 1 -> System.out.print("X");
+                    case 2 -> System.out.print("O");
+                    default -> System.out.print("?");
                 }
                 System.out.print("|");
             }
