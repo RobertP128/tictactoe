@@ -23,11 +23,13 @@ public class Main {
                 valid=app.validatePos(pos);
                 if (!valid){
                     System.out.println("Falsche Eingabe!");
+                    continue;
                 }
                 int x=app.getX(pos);
                 int y=app.getY(pos);
-
-                valid=app.setPiece(x,y,1);
+                if (valid) {
+                    valid = app.setPiece(x, y, 1);
+                }
             }
             app.print(app.board);
 
@@ -46,10 +48,14 @@ public class Main {
                 valid=app.validatePos(pos);
                 if (!valid){
                     System.out.println("Falsche Eingabe!");
+                    continue;
                 }
                 int x=app.getX(pos);
                 int y=app.getY(pos);
-                valid=app.setPiece(x,y,2);
+
+                if (valid) {
+                    valid = app.setPiece(x, y, 2);
+                }
             }
             app.print(app.board);
 
