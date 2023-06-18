@@ -27,9 +27,8 @@ public class Main {
                 }
                 int x=app.getX(pos);
                 int y=app.getY(pos);
-                if (valid) {
-                    valid = app.setPiece(x, y, 1);
-                }
+
+                valid = app.setPiece(x, y, 1);
             }
             app.print(app.board);
 
@@ -53,9 +52,7 @@ public class Main {
                 int x=app.getX(pos);
                 int y=app.getY(pos);
 
-                if (valid) {
-                    valid = app.setPiece(x, y, 2);
-                }
+                valid = app.setPiece(x, y, 2);
             }
             app.print(app.board);
 
